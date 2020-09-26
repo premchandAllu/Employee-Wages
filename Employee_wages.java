@@ -1,19 +1,30 @@
 package project1;
 
 public class Employee_wages
-  { 	  //Constants
+  { 
+
+		 //Constants
 	      public static final  int WAGE_PER_HOUR=20;
 	      public static final int NO_OF_DAYS=20;
 	      public static final int NO_OF_HOURS=100;
 	      public static final int IS_FULL_TIME=1;
 	      public static final int IS_PART_TIME=2;
 	      
-	   public static void main(String[] args)
+	      //Variables
+	      int empwage=0;
+	      int daycount=0;
+	      int hoursworked=0;
+	      int totoalwage=0;
+	      int emphours=0;
+	      
+	   public int calculateWage( )
 	    { 
-	     //Variables
-	     int emphours;
-	     int empwage;
-	     
+		 //Variables
+		 int daycount=0;
+         int hoursworked=0;
+         int totalwage=0;
+	     int emphours=0;
+		      
 	     //Computation
 	     int empcheck = (int) (Math.floor(Math.random() * 10 ) % 3);
 	     
@@ -33,14 +44,30 @@ public class Employee_wages
 	       System.exit(0); }
 	     }
 	    
-	     if(NO_OF_HOURS/emphours < NO_OF_DAYS && emphours!=0)
-	     { empwage= NO_OF_HOURS* WAGE_PER_HOUR;
-	       System.out.println("Employee wage for 100 hours is "+empwage);
-	       
-	     }
-	     else if(NO_OF_HOURS/emphours >= NO_OF_DAYS && emphours !=0)
-	     { empwage= emphours*WAGE_PER_HOUR*NO_OF_DAYS ;
-	       System.out.println("Employee wage for 20 days is"+empwage);
-	       }
-	     }
+	     //Calculation of Daily wage
+	     empwage= emphours * WAGE_PER_HOUR;
+	     //Tabular display of Employee details
+	     
+	     while((hoursworked + emphours ) <= NO_OF_HOURS && daycount < NO_OF_DAYS)
+	        { daycount ++;
+	          totalwage =(NO_OF_HOURS- hoursworked) * WAGE_PER_HOUR;
+	          hoursworked= NO_OF_HOURS;
+	          System.out.println(" "+daycount+ " \t"+hoursworked+"  \t"+totalwage);
+	          
+	        }
+	     
+	    return totalwage;
 }
+	   public static void main(String[] args)
+	     {
+		   
+		  System.out.println("Welcome to employee wage computation ");
+		  Employee_wages obj =new Employee_wages();
+		  int Total= obj.calculateWage();
+		  
+		  //Display of Employee Total Wage
+		  System.out.println("Employee total wage is "+Total);
+	     }
+ 
+  }   
+	    
