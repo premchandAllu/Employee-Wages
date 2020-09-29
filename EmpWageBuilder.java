@@ -6,15 +6,18 @@ public class EmpWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 1;
 
 	private ArrayList<Employee_wages> companyEmpWageList;
+	private HashMap<String,Employee_wages>companyEmpWageMap;
 
 	public EmpWageBuilder() {
 		companyEmpWageList = new ArrayList<>();
+		companyEmpWageMap=new HashMap<>();
 	}
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		Employee_wages companyEmpWage = new Employee_wages(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
 				companyName);
 		companyEmpWageList.add(companyEmpWage);
+		companyEmpWageMap.put(companyName, companyEmpWage);
 	}
 
 	public void ComputeEmpWage() {
@@ -24,7 +27,10 @@ public class EmpWageBuilder implements IComputeEmpWage {
 			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getDailyEmpWage());
 		}
 	}
-
+	public int getTotalEmpWage(String company) {
+		
+		return companyEmpWageMap.get(company).totalEmpWage;
+	}
 	private int ComputeEmpWage(Employee_wages Employee_wages) {
 		// TODO Auto-generated method stub
 		int empWage = 0;
@@ -37,7 +43,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
 
 		switch (empCheck) {
 		case 1:
-			empCheck = IS_FULL_TIME;
+			empCheck = IS_FULL_TIME; 
 			System.out.println("Employee is Present & Full Time");
 			empHours = 8;
 			break;
