@@ -21,6 +21,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
 		for (Employee_wages company: companyEmpWageList) {
 			 ComputeEmpWage(company);
 			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getTotalEmpWage());
+			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getDailyEmpWage());
 		}
 	}
 
