@@ -1,22 +1,41 @@
 package project1;
 
 public class Employee_wages {
- // TODO Auto-generated constructor stub\
 
- public final int WAGE_PER_HOUR;
- public final int NO_OF_DAYS;
- public final int NO_OF_HOURS;
- public final String company;
- public int totalEmpWage;
+	public final int empWagePerHour;
+	public final int workDaysPerMonth;
+	public final int workHoursPerMonth;
+	public final String companyName;
+	public int totalEmpWage;
 
- public Employee_wages(String company,int WAGE_PER_HOUR, int NO_OF_DAYS, int NO_OF_HOURS) {
-  this.company = company;
-  this.WAGE_PER_HOUR = WAGE_PER_HOUR;
-  this.NO_OF_DAYS = NO_OF_DAYS;
-  this.NO_OF_HOURS = NO_OF_HOURS;
- }
+	public Employee_wages(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
+		this.companyName = companyName;
+		this.empWagePerHour = empWagePerHour;
+		this.workDaysPerMonth = workDaysPerMonth;
+		this.workHoursPerMonth = workHoursPerMonth;
+	}
 
- public void setTotalWage(int totalEmpWage) {
-  this.totalEmpWage = totalEmpWage;
- }
+	public void setTotalEmpWage(int totalEmpWage) {
+		this.totalEmpWage = totalEmpWage;
+	}
+
+	public int getEmpWagePerHour() {
+		return empWagePerHour;
+	}
+
+	public int getWorkDaysPerMonth() {
+		return workDaysPerMonth;
+	}
+
+	public int getWorkHoursPerMonth() {
+		return workHoursPerMonth;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public int getTotalEmpWage() {
+		return totalEmpWage;
+	}
 }
